@@ -2,7 +2,7 @@ name              "monit_configs-dhn"
 maintainer        "Daniel Neish"
 maintainer_email  "daniel.neish@gmail.com"
 description       "Monit configs for server components"
-version           "0.2.0"
+version           "0.2.1"
 
 recipe "monit_configs-dhn::memcached", "Monit config for memcached"
 recipe "monit_configs-dhn::mongo", "Monit config for mongodb"
