@@ -1,8 +1,8 @@
 #Monitoring Mysql Service
 
-check process mysql with pidfile /var/run/mysqld/mysql.pid
+check process mysql with pidfile  <%= node['monit_configs-dhn']['mysql']['pidfile'] %>
   group database
-  start program = "/etc/init.d/mysql start"
-  stop program = "/etc/init.d/mysql stop"
+  start program = "/bin/systemctl start mysql.service"
+  stop program = "/bin/systemctl stop mysql.service"
   if failed host 127.0.0.1 port 3306 then restart
   if 15 restarts within 15 cycles then timeout

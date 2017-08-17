@@ -1,7 +1,7 @@
-check process memcached
+check process memcached with match memcached
    with pidfile /var/run/memcached.pid
    group memcache
-   start program = "/etc/init.d/memcached start"
-   stop  program = "/etc/init.d/memcached stop"
+   start program = "/bin/systemctl start memcached.service"
+   stop program = "/bin/systemctl stop memcached.service"
    if failed host 127.0.0.1 port 11211 protocol memcache then restart
    if 3 restarts within 6 cycles then timeout

@@ -1,3 +1,12 @@
-default['monit_configs-dhn']['postgres']['pidfile'] = '/var/run/postgresql/9.3-main.pid'
+default['monit_configs-dhn']['postgres']['pidfile'] = '/var/run/postgresql/9.6-main.pid'
 # for the community cookbook use '/var/lib/mongo/mongod.lock'
 default['monit_configs-dhn']['mongo']['pidfile'] = '/var/run/mongo/mongo.pid'
+default['monit_configs-dhn']['mysql']['pidfile'] = '/var/run/mysqld/mysql.pid'
+
+default['monit_configs-dhn']['system']['loadavg_1min'] = '4'
+default['monit_configs-dhn']['system']['loadavg_5min'] = '3'
+default['monit_configs-dhn']['system']['memory_usage'] = '75'
+default['monit_configs-dhn']['system']['cpu_usage_user'] = '70'
+default['monit_configs-dhn']['system']['cpu_usage_system'] = '30'
+default['monit_configs-dhn']['system']['cpu_usage_wait'] = '20'
+default['monit_configs-dhn']['system']['space_usage'] = '50'

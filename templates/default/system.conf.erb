@@ -1,7 +1,9 @@
 check system localhost
-  if loadavg (1min) > 4 then alert
-  if loadavg (5min) > 3 then alert
-  if memory usage > 75% then alert
-  if cpu usage (user) > 70% for 5 cycles then alert
-  if cpu usage (system) > 30% for 5 cycles then alert
-  if cpu usage (wait) > 20% for 5 cycles then alert
+  if loadavg (1min) > <%= node['monit_configs-dhn']['system']['loadavg_1min'] %>% then alert
+  if loadavg (5min) > <%= node['monit_configs-dhn']['system']['loadavg_5min'] %>% then alert
+  if memory usage > <%= node['monit_configs-dhn']['system']['memory_usage'] %>% then alert
+  if cpu usage (user) > <%= node['monit_configs-dhn']['system']['cpu_usage_user'] %>% for 5 cycles then alert
+  if cpu usage (system) > <%= node['monit_configs-dhn']['system']['cpu_usage_system'] %>% for 5 cycles then alert
+  if cpu usage (wait) > <%= node['monit_configs-dhn']['system']['cpu_usage_wait'] %>% for 5 cycles then alert
+  check filesystem rootfs with path /
+  if space usage > <%= node['monit_configs-dhn']['system']['space_usage'] %>% then alert
