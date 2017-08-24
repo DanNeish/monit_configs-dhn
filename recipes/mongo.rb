@@ -7,7 +7,7 @@ template "/etc/monit/conf.d/mongo.conf" do
 end
 
 execute "restart-monit" do
-  command "initctl reload-configuration"
+  command "systemctl daemon-reload"
   command "monit reload"
   action :nothing
 end
